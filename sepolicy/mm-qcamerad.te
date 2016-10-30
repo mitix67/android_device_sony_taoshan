@@ -6,3 +6,5 @@ allow mm-qcamerad qdsp_device:chr_file { read ioctl open };
 allow mm-qcamerad socket_device:sock_file write;
 allow mm-qcamerad audio_device:dir search;
 allow mm-qcamerad audio_device:chr_file rw_file_perms;
+allow mm-qcamerad camera_device:chr_file { ioctl open read write };
+allow mm-qcamerad system_file:file execmod;
