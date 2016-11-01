@@ -347,9 +347,9 @@ on property:ro.data.large_tcp_window_size=true
     write /proc/sys/net/ipv4/tcp_adv_win_scale  2
 
 # healthd
-service charger /sbin/healthd -c
+service charger /charger
     class charger
-    seclabel u:r:healthd:s0
+    seclabel u:r:charger:s0
 
 service ta_qmi_service /system/bin/ta_qmi_service
     user root
