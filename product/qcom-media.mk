@@ -18,6 +18,11 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     libstagefrighthw
 
+# DRM HIDL interfaces
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-impl
+
+# DRM properties
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.legacyencoder=true \
     media.stagefright.less-secure=true
