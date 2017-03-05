@@ -173,7 +173,7 @@ void mm_stream_handle_rcvd_buf(mm_stream_t *my_obj,
 
     /* check if has CB */
     for (i=0 ; i< MM_CAMERA_STREAM_BUF_CB_MAX; i++) {
-        if(NULL != my_obj->buf_cb[i].cb) {
+        if(my_obj->buf_cb[i].cb) {
             has_cb = 1;
         }
     }
@@ -630,22 +630,20 @@ int32_t mm_stream_fsm_reg(mm_stream_t * my_obj,
         break;
     case MM_STREAM_EVT_START:
         {
-            /* launch cmd thread if CB is not null */
-            if (NULL != my_obj->buf_cb) {
-                mm_camera_cmd_thread_launch(&my_obj->cmd_thread,
+          
+            mm_camera_cmd_thread_launch(&my_obj->cmd_thread,
                                 mm_stream_dispatch_app_data,
                                 (void *)my_obj);
 
-            }
+            
 
             if(my_obj->need_stream_on) {
                 rc = mm_stream_streamon(my_obj);
                 if (0 != rc) {
                     /* failed stream on, need to release cmd thread if it's launched */
-                    if (NULL != my_obj->buf_cb) {
-                        mm_camera_cmd_thread_release(&my_obj->cmd_thread);
+                    mm_camera_cmd_thread_release(&my_obj->cmd_thread);
 
-                    }
+                    
                     break;
                 }
                 my_obj->state = MM_STREAM_STATE_ACTIVE_STREAM_ON;
@@ -698,10 +696,9 @@ int32_t mm_stream_fsm_active_stream_on(mm_stream_t * my_obj,
     case MM_STREAM_EVT_STOP:
         {
             rc = mm_stream_streamoff(my_obj);
-            if (NULL != my_obj->buf_cb) {
-                mm_camera_cmd_thread_release(&my_obj->cmd_thread);
+            mm_camera_cmd_thread_release(&my_obj->cmd_thread);
 
-            }
+            
             my_obj->state = MM_STREAM_STATE_REG;
         }
         break;
@@ -735,10 +732,9 @@ int32_t mm_stream_fsm_active_stream_off(mm_stream_t * my_obj,
         break;
     case MM_STREAM_EVT_STOP:
         {
-            if (NULL != my_obj->buf_cb) {
-                rc = mm_camera_cmd_thread_release(&my_obj->cmd_thread);
+            rc = mm_camera_cmd_thread_release(&my_obj->cmd_thread);
 
-            }
+            
             my_obj->state = MM_STREAM_STATE_REG;
         }
         break;
