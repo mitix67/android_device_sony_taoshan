@@ -51,7 +51,6 @@ etc/firmware/wlan/prima/WCNSS_cfg.dat
 etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 framework/com.google.widevine.software.drm.jar
-lib/hw/camera.vendor.msm8960.so
 lib/hw/lights.vendor.msm8960.so
 lib/hw/sensors.msm8960.so
 lib/libacdbloader.so
