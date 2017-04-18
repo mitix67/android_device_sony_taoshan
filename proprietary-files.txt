@@ -156,6 +156,7 @@ vendor/lib/librs_adreno_sha1.so
 vendor/lib/librs_adreno.so
 vendor/lib/libRSDriver_adreno.so
 vendor/lib/libsc-a3xx.so
+vendor/lib/libstlport.so
 vendor/lib/libtime_genoff.so
 vendor/lib/libulp2.so
 vendor/lib/libwvdrm_L3.so
