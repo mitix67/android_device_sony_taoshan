@@ -282,7 +282,7 @@ on property:ro.boot.emmc=true
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     class late_start
     user bluetooth
-    group qcom_oncrpc bluetooth net_bt_admin net_bt_stack
+    group qcom_oncrpc bluetooth
     disabled
     oneshot
 
@@ -428,7 +428,7 @@ service thermald /system/bin/thermald
 service qcamerasvr /system/bin/mm-qcamera-daemon
    class late_start
    user camera
-   group camera system inet input graphics net_bt_stack
+   group camera system inet input graphics
 
 service qseecomd /system/bin/qseecomd
    class late_start
