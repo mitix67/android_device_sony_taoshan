@@ -7,6 +7,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 # Kernel properties
 TARGET_KERNEL_SOURCE := kernel/sony/msm8930
 TARGET_KERNEL_CONFIG := taoshan_defconfig
+BOARD_KERNEL_IMAGE_NAME := zImage
 
 # Custom boot
 BOARD_CUSTOM_BOOTIMG := true
