@@ -255,13 +255,6 @@ on boot
 
     write /sys/devices/platform/msm_sdcc.3/idle_timeout 10
 
-    # Post-setup services
-    rm /data/mpdecision/power_collapse
-    rm /data/mpdecision/standalone_power_collapse
-    rmdir /data/mpdecision
-    mkdir /data/mpdecision 0770 root system
-    start mpdecision
-
 
 service irsc_util /system/bin/irsc_util "/etc/sec_config"
     class main
@@ -413,10 +406,6 @@ service taimport /system/bin/taimport
     user root
     group system
     oneshot
-
-service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
-   user root
-   disabled
 
 service akmd /system/bin/akmd8963 -m 5 -o 1
     class main
