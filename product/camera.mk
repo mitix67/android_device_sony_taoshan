@@ -1,7 +1,6 @@
 # Camera packages
 PRODUCT_PACKAGES += \
-    camera.qcom \
-    libstlport
+    camera.qcom
 
 # Camera properties
 PRODUCT_PROPERTY_OVERRIDES += \
