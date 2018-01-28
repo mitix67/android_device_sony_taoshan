@@ -1,0 +1,2 @@
+# Legacy USB
+TARGET_USES_LEGACY_USB_INTERFACE := true
