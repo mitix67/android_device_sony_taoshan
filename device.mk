@@ -20,7 +20,9 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 PRODUCT_AAPT_PREBUILT_DPI := hdpi tvdpi mdpi ldpi
 
 # Device specific overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay \
+    $(LOCAL_PATH)/overlay-lineage
 
 # Product common configurations
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
