@@ -23,20 +23,12 @@ LOCAL_MODULE := sensors.$(TARGET_BOARD_PLATFORM)
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_PROPRIETARY_MODULE := true
 
-LOCAL_CFLAGS := -DLOG_TAG=\"MultiHal\"
+LOCAL_CFLAGS := -DLOG_TAG=\"Sensors_Wrapper\"
 
 LOCAL_SRC_FILES := \
-    multihal.cpp \
-    SensorEventQueue.cpp \
+    sensors_wrapper.cpp
 
 LOCAL_SHARED_LIBRARIES := \
-    libcutils \
-    libdl \
-    liblog \
-    libutils \
-
-LOCAL_STRIP_MODULE := false
+    liblog
 
 include $(BUILD_SHARED_LIBRARY)
-
-include $(call all-makefiles-under, $(LOCAL_PATH))
