@@ -150,7 +150,6 @@
             <name>IRadio</name>
             <instance>slot1</instance>
         </interface>
-        <interface>
     </hal>
     <hal format="hidl">
         <name>android.hardware.radio.deprecated</name>
