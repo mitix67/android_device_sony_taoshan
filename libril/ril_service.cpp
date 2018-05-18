@@ -3852,17 +3852,15 @@ int radio::getDataRegistrationStateResponse(int slotId,
         } else if (s_vendorFunctions->version <= 14) {
             int numStrings = responseLen / sizeof(char *);
             if ((numStrings != 6) && (numStrings != 11)) {
-                RLOGE("getDataRegistrationStateResponse Invalid response: NULL");
-                if (e == RIL_E_SUCCESS) responseInfo.error = RadioError::INVALID_RESPONSE;
-            } else {
-                char **resp = (char **) response;
-                dataRegResponse.regState = (RegState) ATOI_NULL_HANDLED_DEF(resp[0], 4);
-                dataRegResponse.rat =  ATOI_NULL_HANDLED_DEF(resp[3], 0);
-                dataRegResponse.reasonDataDenied =  ATOI_NULL_HANDLED(resp[4]);
-                dataRegResponse.maxDataCalls =  ATOI_NULL_HANDLED_DEF(resp[5], 1);
-                fillCellIdentityFromDataRegStateResponseString(dataRegResponse.cellIdentity,
-                        numStrings, resp);
+                RLOGW("getDataRegistrationStateResponse Possible invalid response? Expected numStrings to be 6 or 11, got %d", numStrings);
             }
+            char **resp = (char **) response;
+            dataRegResponse.regState = (RegState) ATOI_NULL_HANDLED_DEF(resp[0], 4);
+            dataRegResponse.rat =  ATOI_NULL_HANDLED_DEF(resp[3], 0);
+            dataRegResponse.reasonDataDenied =  ATOI_NULL_HANDLED(resp[4]);
+            dataRegResponse.maxDataCalls =  ATOI_NULL_HANDLED_DEF(resp[5], 1);
+            fillCellIdentityFromDataRegStateResponseString(dataRegResponse.cellIdentity,
+                    numStrings, resp);
         } else {
             RIL_DataRegistrationStateResponse *dataRegState =
                     (RIL_DataRegistrationStateResponse *)response;
