@@ -24,6 +24,12 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-lineage
 
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=adb,mtp \
+    ro.adb.secure=0 \
+    ro.secure=0 \
+    ro.debuggable=1
+
 # Product common configurations
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
