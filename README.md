@@ -23,8 +23,9 @@ Camera  | 8MPx, LED Flash
 
 This branch is for building LineageOS 15.1 (or Android Oreo 8.1 AOSP based) ROMS.
 
-How to build
-repo init -u git://github.com/LineageOS/android.git -b lineage-16.0
-curl --create-dirs -L -o .repo/local_manifests/manifest_sony_taoshan.xml -O -L 
-https://gist.githubusercontent.com/mitix67/04601063b8db019a6fd77846ebc17fad/raw/782eba4fe0dbe8e0be39418860bd9ff857487b86/manifest_sony_taoshan.xml
-repo sync
+How to build:
+Initialize repo:
+
+    repo init -u git://github.com/LineageOS/android.git -b lineage-15.1
+    curl --create-dirs -L -o .repo/local_manifests/manifest_sony_taoshan.xml -O -L https://gist.githubusercontent.com/mitix67/04601063b8db019a6fd77846ebc17fad/raw/782eba4fe0dbe8e0be39418860bd9ff857487b86/manifest_sony_taoshan.xml
+    repo sync
